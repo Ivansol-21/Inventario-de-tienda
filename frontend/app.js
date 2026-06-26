@@ -30,7 +30,7 @@ const main = document.querySelector("#content");
 
 // cargarProductos();
 
-const API = "http://localhost:3000/api";
+const API = "https://inventario-de-tienda.onrender.com/api";
 
 // ─── CARGAR CATEGORÍAS ─────────────────────────────────
 // Se llama una vez al inicio para llenar los <select>
