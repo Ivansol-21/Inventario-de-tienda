@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>Inventario de Tienda</h1>
+
+      <!-- Buscador -->
+      <div class="barra">
+        <input id="input-buscar" type="text" placeholder="Buscar producto..." />
+        <button id="btn-buscar">Buscar</button>
+        <button id="btn-todos">Ver todos</button>
+        <ul class="sugerencias"></ul>
+      </div>
+
+      <!-- Filtro por categoría -->
+      <div class="filtros">
+        <span>Filtrar por categoría:</span>
+        <select id="select-categoria">
+          <option value="">Todas</option>
+          <!-- Se llena dinámicamente con JS -->
+        </select>
+      </div>
+
+      <!-- Formulario agregar producto -->
+      <details class="form">
+        <summary>+ Agregar producto</summary>
+        <div class="formulario">
+          <input id="f-nombre" type="text" placeholder="Nombre" />
+          <input
+            id="f-precio"
+            type="number"
+            placeholder="Precio"
+            min="0"
+            step="0.01"
+          />
+          <input id="f-stock" type="number" placeholder="Stock" min="0" />
+          <select id="f-categoria">
+            <option value="">Sin categoría</option>
+          </select>
+          <button id="btn-agregar">Agregar</button>
+        </div>
+      </details>
+
+      <!-- Lista de productos -->
+      <div id="lista-productos"></div>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

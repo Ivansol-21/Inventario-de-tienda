@@ -1,0 +1,204 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-rows: repeat(3, auto) 130px;
+    grid-template-areas: 
+        "titulo"
+        "buscador"
+        "categorias"
+        "form"
+        "productos";
+    justify-items: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    gap: 1rem 0;
+}
+
+.contenedor h1 {
+    grid-area: titulo;
+    font-size: 2rem;
+    padding-top: 2rem;
+    font-weight: 900;
+}
+.barra {
+    grid-area: buscador;
+    position: relative;
+    font-size: 14px;
+}
+#input-buscar {
+    padding: 0.175rem;
+}
+.barra button {
+    padding: 0.125rem;
+    cursor: pointer;
+    transition: .2s;
+}
+.barra button:hover {
+    background-color: rgb(77, 130, 255);
+    color: white;
+}
+.sugerencias {
+    background-color: rgb(234, 241, 244);
+    list-style: none;
+    position: absolute;
+    inline-size: 100%;
+    margin-top: 5px;
+    border-radius: 6px;
+    z-index: 999;
+}
+.sugerencias .item {
+    cursor: pointer;
+    padding: 2px 10px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+.sugerencias .item:hover {
+    background-color: rgb(77, 130, 255);
+    color: white;
+}
+.filtros {
+    grid-area: categorias;
+    font-size: 14px;
+}
+.form {
+    grid-area: form;
+    text-align: center;
+    align-self: start;
+    display: flex;
+    flex-flow: column;
+    gap: 5px 0;
+    align-items: center;
+    font-size: 14px;
+}
+.form summary {
+    position: relative;
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 6px;
+    overflow: hidden;
+    max-inline-size: 182px;
+}
+.form summary:hover::before {
+    content: "";
+    position: absolute;
+    inset: 0 -20px;
+    inline-size: 20px;
+    block-size: 100%;
+    /* background-color: rgb(255, 243, 115); */
+    background-image: linear-gradient(116deg, transparent, rgba(255, 243, 115, .8), transparent);
+    animation: reflejo 600ms ease-in-out;
+}
+.form .formulario {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    gap: 5px 20px;
+    max-block-size: 100px;
+}
+.formulario input, select {
+    padding: 2px;
+}
+.formulario input {
+    border: none;
+    border-bottom: 1px solid black;
+}
+#btn-agregar {
+    border-style: none;
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+    background-color: rgb(0, 221, 0);
+}
+#lista-productos {
+    grid-area: productos;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 10px;
+    inline-size: 100%;
+    padding: 0 15px;
+}
+.producto-card {
+    display: flex;
+    max-inline-size: 250px;
+    flex-flow: column nowrap;
+    padding: 12px;
+    border-radius: 8px;
+    gap: 7px;
+    box-shadow: 0 0 7px 3px rgb(228, 228, 228);
+}
+.producto-info {
+    display: flex;
+    justify-content: space-between;
+}
+.producto-info  strong{
+    white-space: nowrap;
+    overflow: hidden;
+    inline-size: 150px;
+    text-overflow: ellipsis;
+}
+.categoria {
+    font-size: 14px;
+    color: rgb(123, 123, 123);
+    font-weight: 100;
+    margin-left: 12px;
+}
+.stock {
+    font-size: 12px;
+    color: rgb(123, 123, 123);
+    margin-left: 12px;
+}
+.producto-acciones {
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    grid-template-areas: 
+        "i-stock b-stock"
+        "delete delete";
+    font-size: 14px;
+    gap: 10px;
+}
+.producto-acciones input {
+    grid-area: i-stock;
+    padding: 2px;
+}
+.producto-acciones button {
+    cursor: pointer;
+    padding: 4px;
+    border-style: none;
+    border-radius: 4px;
+}
+.producto-acciones button:nth-child(2) {
+    grid-area: b-stock;
+    background-color: rgb(110, 233, 255);
+}
+.producto-acciones .btn-danger {
+    grid-area: delete;
+    background-color: rgb(255, 114, 114);
+}
+.e {
+    background-color: antiquewhite;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+    margin-bottom: 50px;
+}
+
+@keyframes reflejo {
+    0% {
+        opacity: 80%;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 100%;
+        transform: translateX(250px);
+    }
+}
